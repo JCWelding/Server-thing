@@ -13,7 +13,7 @@ app.post("/formsubmit",async(req, res) => {
     const email = req.body.email
     const message = req.body.message
 
-    fs.writeFile(`${email}-contactform-${new Date().getTime()}`, JSON.stringify({name,email,message})).then(() => {
+    fs.writeFile(`submissions/${email}-contactform-${new Date().getTime()}`, JSON.stringify({name,email,message})).then(() => {
         res.json({message: 'OK'})
     }).catch(() => {
         res.json({message: 'FAIL'})
